@@ -51,7 +51,7 @@ function sum() {
     }
     return result;
   }
-  
+    
  
   console.log(subtraction(10, 2, 3)); // prints 5
   console.log(subtraction(20, 5, 2, 3)); // prints 10
@@ -169,16 +169,16 @@ oddOrEven3(5); // Output: 5 is odd
 oddOrEven3(6); // Output: 6 is even
 
 
-/////practice number 16 
-// var obj = {
-//   charlize_theron: 23,
-//   brad_pitt: ['angelina_jolie', 'Nicole Kidman'],
-//   jennifer_lawrence: {
-//     jennifer_aniston: 22,
-//     // null,
-//     jennifer_connelly: 63
-//   }
-// }
+///practice number 16 
+var obj = {
+  charlize_theron: 23,
+  brad_pitt: ['angelina_jolie', 'Nicole Kidman'],
+  jennifer_lawrence: {
+    jennifer_aniston: 22,
+    // null,
+    jennifer_connelly: 63
+  }
+}
 
 // var mystr = JSON.stringify(obj);
 // var spl = mystr.split('_');
