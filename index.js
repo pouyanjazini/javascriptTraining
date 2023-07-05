@@ -169,86 +169,88 @@ oddOrEven3(5); // Output: 5 is odd
 oddOrEven3(6); // Output: 6 is even
 
 
+
+
+/////// Practice number 15
+/* برای اینکه 
+circular object 
+هستش و به خودش اشاره میکنه 
+به صورت مستقیم و غیر مستقیم
+
+مسئله دیگه ای که وجود داره که خودم بهش رسیدم
+اینه که وقتی میخواهیم 
+stringify
+کنیم از جایی شروع و در جایی خاتمه پیدا میکند 
+اما وقتی با 
+circular object
+طرف هستیم انتهای آن نامشخص است
+
+برای رفع این مشکل 
+باید 
+circular reference 
+رو در 
+window object 
+remove
+کنیم 
+
+مثل زیر :
+*/
+
+
+var windowCopy = {
+  ...window,
+  frames: undefined,
+  parent: undefined,
+  self: undefined,
+  top: undefined,
+  window: undefined // ba search behesh residam va amalan sakhte zehne man nist
+                    // amalan window property remove shode va copy az oon sakhte shode
+};
+
+var jsonString = JSON.stringify(windowCopy);
+
+
+
 // ///practice number 16 
-// var obj = {
-//   charlize_theron: 23,
-//   brad_pitt: ['angelina_jolie', 'Nicole Kidman'],
-//   jennifer_lawrence: {
-//     jennifer_aniston: 22,
-//     // null,
-//     jennifer_connelly: 63
-//   }
-// }
-
-// var mystr = JSON.stringify(obj);
-// var spl = mystr.split('_');
-// console.log(spl);
-// console.log(mystr);
-
-// function convert(obj) {
-//   var newObj = {};
-//   for (var key in obj) {
-//     if (obj.hasOwnProperty(key)) {
-//       var newKey = '';
-//       var words = key.split('_');
-//       for (var i = 0; i < words.length; i++) {
-//         var word = words[i];
-//         if (i > 0) {
-//           word = word.charAt(0).toUpperCase() + word.slice(1);
-//         }
-//         newKey += word;
-//       }
-//       var value = obj[key];
-//       if (typeof value === 'object' && value !== null) {
-//         newObj[newKey] = convert(value);
-//       } else {
-//         newObj[newKey] = value;
-//       }
-//     }
-//   }
-//   return newObj;
-// }
-
-// var obj = {
-//   charlize_theron: 23,
-//   brad_pitt: ['angelina_jolie', 'Nicole Kidman'],
-//   jennifer_lawrence: {
-//     jennifer_aniston: 22,
-//     // null,
-//     jennifer_connelly: 63
-//   }
-// };
-
-// var newObj = convert(obj);
-// console.log(newObj);
 
 
-// var obj ={
-//   name : 'pouyan',
-//   age : 33
-// }
+function convert(obj) {
+  var newObj = {};
+  for (var key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      var newKey = '';
+      var words = key.split('_');
+      for (var i = 0; i < words.length; i++) {
+        var word = words[i];
+        if (i > 0) {
+          word = word.charAt(0).toUpperCase() + word.slice(1);
+        }
+        newKey += word;
+      }
+      var value = obj[key];
+      if (typeof value === 'object' && value !== null) {
+        newObj[newKey] = convert(value);
+      } else {
+        newObj[newKey] = value;
+      }
+    }
+  }
+  return newObj;
+}
 
-// Object.defineProperty(obj,'ghad',{value:175})
-// Object.defineProperty(obj,'family',{value :'jazini',enumerable : true})
+var obj = {
+  charlize_theron: 23,
+  brad_pitt: ['angelina_jolie', 'Nicole Kidman'],
+  jennifer_lawrence: {
+    jennifer_aniston: 22,
+    // null,
+    jennifer_connelly: 63
+  }
+};
 
-// console.log(obj);
-// console.log(JSON.stringify(obj));
-
-// var obj = {
-//   name: 'Ali'
-//   //   age: 33
-// }
+var newObj = convert(obj);
+console.log(newObj);
 
 
-// Object.defineProperty(obj, 'age', {
-//   get: function () {
-//     return this.age
-//   },
-//   set: function (value) {
-//     this.age = +value
-//   }
-// })
 
-// obj.age = '39'
 
-// console.log(obj)
