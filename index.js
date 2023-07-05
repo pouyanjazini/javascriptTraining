@@ -253,4 +253,37 @@ console.log(newObj);
    
 
 
+///// Practice number 17 
 
+
+function buildTree(data, parentId) {
+  var result = {};
+  var children = [];
+  for (var i = 0; i < data.length; i++) {
+    var item = data[i];
+    if (item.parentId === parentId) {
+      result.id = item.id;
+      result.title = item.title;
+      var child = buildTree(data, item.id);
+      if (child) {
+        children.push(child);
+      }
+    }
+  }
+  if (children.length) {
+    result.children = children;
+  }
+  return result;
+}
+
+var data = [
+  { id: 1, title: 'Yek', parentId: null },
+  { id: 2, title: 'Do', parentId: 1 },
+  { id: 3, title: 'Se', parentId: 1 },
+  { id: 4, title: 'Chahar', parentId: 2 },
+  { id: 5, title: 'Panj', parentId: 2 },
+  { id: 6, title: 'Shesh', parentId: 3 }
+];
+
+var newData = buildTree(data, null);
+console.log(newData);
