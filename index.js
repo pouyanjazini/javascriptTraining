@@ -262,12 +262,12 @@ function buildTree(data, parentId) {
   for (var i = 0; i < data.length; i++) {
     var item = data[i];
     if (item.parentId === parentId) {
-      result.id = item.id;
-      result.title = item.title;
-      var child = buildTree(data, item.id);
-      if (child) {
-        children.push(child);
-      }
+      var child = {
+        id: item.id,
+        title: item.title,
+        children: buildTree(data, item.id)
+      };
+      children.push(child);
     }
   }
   if (children.length) {
@@ -287,3 +287,6 @@ var data = [
 
 var newData = buildTree(data, null);
 console.log(newData);
+
+
+///// Practice number 18
