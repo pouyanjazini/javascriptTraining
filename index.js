@@ -1,120 +1,111 @@
 //practice number 7
 var Friends = [
-    { FirstName: "Hassan", LastName: "RezaAli" },
-    { FirstName: "Niloo", LastName: "Khalili" }
+  { FirstName: "Hassan", LastName: "RezaAli" },
+  { FirstName: "Niloo", LastName: "Khalili" },
 ];
 
-
-
 function printFriends(friends) {
-    for (var i = 0; i < friends.length; i++) {
-        console.log("First Name: " + friends[i].FirstName + ", Last Name: " + friends[i].LastName);
-    }
+  for (var i = 0; i < friends.length; i++) {
+    console.log(
+      "First Name: " +
+        friends[i].FirstName +
+        ", Last Name: " +
+        friends[i].LastName
+    );
+  }
 }
 
 printFriends(Friends);
 
-
-
 //practice number 8
-var myPerson = {FirstName : 'Pouyan', LastName : 'Jazini'};
+var myPerson = { FirstName: "Pouyan", LastName: "Jazini" };
 
 function printMyName(myname) {
-    
-        console.log("First Name: " + myname.FirstName + ", Last Name: " + myname.LastName);
-    
+  console.log(
+    "First Name: " + myname.FirstName + ", Last Name: " + myname.LastName
+  );
 }
 
-
 printMyName(myPerson);
-
 
 //practice number 9
 //////
 function sum() {
-    var result = 0;
-    for (var i = 0; i < arguments.length; i++) {
-      result += arguments[i];
-    }
-    return result;
+  var result = 0;
+  for (var i = 0; i < arguments.length; i++) {
+    result += arguments[i];
   }
-  
- 
-  console.log(sum(1, 2, 3, 4)); // prints 10
-  console.log(sum(5, 10, 15)); // prints 30
+  return result;
+}
+
+console.log(sum(1, 2, 3, 4)); // prints 10
+console.log(sum(5, 10, 15)); // prints 30
 
 ///////////
-  function subtraction() {
-    var result = arguments[0];
-    for (var i = 1; i < arguments.length; i++) {
-      result -= arguments[i];
-    }
-    return result;
+function subtraction() {
+  var result = arguments[0];
+  for (var i = 1; i < arguments.length; i++) {
+    result -= arguments[i];
   }
-    
- 
-  console.log(subtraction(10, 2, 3)); // prints 5
-  console.log(subtraction(20, 5, 2, 3)); // prints 10
+  return result;
+}
+
+console.log(subtraction(10, 2, 3)); // prints 5
+console.log(subtraction(20, 5, 2, 3)); // prints 10
 
 /////////
-  function multiply() {
-    var result = 1;
-    for (var i = 0; i < arguments.length; i++) {
-      result *= arguments[i];
-    }
-    return result;
+function multiply() {
+  var result = 1;
+  for (var i = 0; i < arguments.length; i++) {
+    result *= arguments[i];
   }
-  
+  return result;
+}
 
-  console.log(multiply(2, 3, 4)); // prints 24
-  console.log(multiply(5, 10, 2)); // prints 100
+console.log(multiply(2, 3, 4)); // prints 24
+console.log(multiply(5, 10, 2)); // prints 100
 
 //////
-  function divide() {
-    var result = arguments[0];
-    for (var i = 1; i < arguments.length; i++) {
-      if (arguments[i] !== 0) {
-        result /= arguments[i];
-      } else {
-        console.log("Error: Division by zero.");
-        return null;
-      }
+function divide() {
+  var result = arguments[0];
+  for (var i = 1; i < arguments.length; i++) {
+    if (arguments[i] !== 0) {
+      result /= arguments[i];
+    } else {
+      console.log("Error: Division by zero.");
+      return null;
     }
-    return result;
   }
-  
+  return result;
+}
 
-  console.log(divide(20, 2, 5)); // prints 2
-  console.log(divide(10, 0, 2)); // prints "Error: Division by zero." and returns null
-
+console.log(divide(20, 2, 5)); // prints 2
+console.log(divide(10, 0, 2)); // prints "Error: Division by zero." and returns null
 
 ////////////////////
 //practice number 10
 
-
-  function operation(operationName, ...args) {
- 
-    switch (operationName) {
-      case "sum":
-        return sum(...args);
-      case "subtract":
-        return subtraction(...args);;
-      case "multiply":
-        return multiply(...args);
-      case "divide":
-        return divide(...args);
-      default:
-        console.log("Error: Invalid operation.");
-        return null;
-    }
+function operation(operationName, ...args) {
+  switch (operationName) {
+    case "sum":
+      return sum(...args);
+    case "subtract":
+      return subtraction(...args);
+    case "multiply":
+      return multiply(...args);
+    case "divide":
+      return divide(...args);
+    default:
+      console.log("Error: Invalid operation.");
+      return null;
   }
+}
 
 console.log(operation("sum", 1, 4, 6)); // prints 11
 console.log(operation("subtract", 10, 2, 3)); // prints 5
 console.log(operation("multiply", 2, 3, 4)); // prints 24
 console.log(operation("divide", 20, 2, 5)); // prints 2
 console.log(operation("power", 2, 3)); // prints "Error: Invalid operation." and returns null
-
 
 ///////////////////
 //practice number 11
@@ -123,19 +114,17 @@ function callbackOperation(callbackFn, ...args) {
   return callbackFn(...args);
 }
 
-
 console.log(callbackOperation(sum, 1, 4, 6)); // Output: 11
 
 ///////////////////
 //practice number 12
 function oddOrEven(num) {
   if (num % 2 === 0) {
-    console.log('is even');
+    console.log("is even");
   } else {
-    console.log('is odd');
+    console.log("is odd");
   }
 }
-
 
 oddOrEven(5); // Output: is odd
 oddOrEven(6); // Output: is even
@@ -145,10 +134,8 @@ function oddOrEven2(num) {
   console.log(`${num} is ${num % 2 === 0 ? "even" : "odd"}`);
 }
 
-
 oddOrEven2(5); // Output: 5 is odd
 oddOrEven2(6); // Output: 6 is even
-
 
 ////
 function oddOrEven3(num) {
@@ -164,12 +151,8 @@ function oddOrEven3(num) {
   }
 }
 
-
 oddOrEven3(5); // Output: 5 is odd
 oddOrEven3(6); // Output: 6 is even
-
-
-
 
 /////// Practice number 15
 /* برای اینکه 
@@ -196,30 +179,26 @@ remove
 مثل زیر :
 */
 
-
 var windowCopy = {
   ...window,
   frames: undefined,
   parent: undefined,
   self: undefined,
   top: undefined,
-  window: undefined // ba search behesh residam va amalan sakhte zehne man nist
-                    // amalan window property remove shode va copy az oon sakhte shode
+  window: undefined, // ba search behesh residam va amalan sakhte zehne man nist
+  // amalan window property remove shode va copy az oon sakhte shode
 };
 
 var jsonString = JSON.stringify(windowCopy);
 
-
-
-// ///practice number 16 
-
+// ///practice number 16
 
 function convert(obj) {
   var newObj = {};
   for (var key in obj) {
     if (obj.hasOwnProperty(key)) {
-      var newKey = '';
-      var words = key.split('_');
+      var newKey = "";
+      var words = key.split("_");
       for (var i = 0; i < words.length; i++) {
         var word = words[i];
         if (i > 0) {
@@ -228,7 +207,7 @@ function convert(obj) {
         newKey += word;
       }
       var value = obj[key];
-      if (typeof value === 'object' && value !== null) {
+      if (typeof value === "object" && value !== null) {
         newObj[newKey] = convert(value);
       } else {
         newObj[newKey] = value;
@@ -240,21 +219,18 @@ function convert(obj) {
 
 var obj = {
   charlize_theron: 23,
-  brad_pitt: ['angelina_jolie', 'Nicole Kidman'],
+  brad_pitt: ["angelina_jolie", "Nicole Kidman"],
   jennifer_lawrence: {
     jennifer_aniston: 22,
     // null,
-    jennifer_connelly: 63
-  }
+    jennifer_connelly: 63,
+  },
 };
 
 var newObj = convert(obj);
 console.log(newObj);
-   
 
-
-///// Practice number 17 
-
+///// Practice number 17
 
 function buildTree(data, parentId) {
   var result = {};
@@ -265,7 +241,7 @@ function buildTree(data, parentId) {
       var child = {
         id: item.id,
         title: item.title,
-        children: buildTree(data, item.id)
+        children: buildTree(data, item.id),
       };
       children.push(child);
     }
@@ -277,16 +253,50 @@ function buildTree(data, parentId) {
 }
 
 var data = [
-  { id: 1, title: 'Yek', parentId: null },
-  { id: 2, title: 'Do', parentId: 1 },
-  { id: 3, title: 'Se', parentId: 1 },
-  { id: 4, title: 'Chahar', parentId: 2 },
-  { id: 5, title: 'Panj', parentId: 2 },
-  { id: 6, title: 'Shesh', parentId: 3 }
+  { id: 1, title: "Yek", parentId: null },
+  { id: 2, title: "Do", parentId: 1 },
+  { id: 3, title: "Se", parentId: 1 },
+  { id: 4, title: "Chahar", parentId: 2 },
+  { id: 5, title: "Panj", parentId: 2 },
+  { id: 6, title: "Shesh", parentId: 3 },
 ];
 
 var newData = buildTree(data, null);
 console.log(newData);
 
-
 ///// Practice number 18
+
+function generateUrl(obj) {
+  var url = obj.url.replace(/:(\w+)/g, function(match, param) {
+    return obj.params[param] || '';
+  });
+
+  // Add query parameters to the URL
+  var queryParams = [];
+  for (var key in obj.query) {
+    if (obj.query.hasOwnProperty(key)) {
+      queryParams.push(key + '=' + obj.query[key]);
+    }
+  }
+  if (queryParams.length) {
+    url += '?' + queryParams.join('&');
+  }
+  
+  return url;
+}
+
+var obj = {
+  url: 'https://ali.com/api/article/:id/:title',
+  params: {
+    id: 19,
+    date: '2020-12-06'
+  },
+  query: {
+    page: 12,
+    size: 20,
+    language: 'en'
+  }
+};
+
+var url = generateUrl(obj);
+console.log(url); // Output: https://ali.com/api/article/19/?page=12&size=20&language=en
